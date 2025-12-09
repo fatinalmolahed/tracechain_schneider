@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <title>TraceChain – Traçabilitat intel·ligent per a la planta de Molins de Rei</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="TraceChain és un projecte desenvolupat per estudiantat de la UAB en col·laboració amb Schneider Electric per digitalitzar la traçabilitat dels armaris elèctrics a la planta de Molins de Rei."
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="nav-left">
+        <a href="#hero" class="nav-logo-link">
+          <img src="logo_tracechain.png" alt="TraceChain" class="nav-logo-image">
+        </a>
+      </div>
+
+      <button class="nav-menu-toggle" aria-label="Obrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- NAV REORDENAT: EQUIP AL FINAL -->
+      <nav class="nav-right">
+        <a href="#context" class="nav-link">Context</a>
+        <a href="#objectius" class="nav-link">Objectius</a>
+        <a href="#solucio" class="nav-link">Solució</a>
+        <a href="#arquitectura" class="nav-link">Arquitectura</a>
+        <a href="#cas-usu" class="nav-link">Cas d’ús</a>
+        <a href="#infraestructura" class="nav-link">Infraestructura</a>
+        <a href="#beneficis" class="nav-link">Beneficis</a>
+        <a href="#roadmap" class="nav-link">Roadmap</a>
+        <a href="#equip" class="nav-link">Equip</a>
+        <a href="#footer" class="nav-cta">Projecte acadèmic</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="section-inner hero-main-center">
+
+      <!-- TÍTOL PRINCIPAL -->
+      <h1 class="hero-title-main">TraceChain</h1>
+
+      <!-- CLAIM EN ANGLÈS -->
+      <p class="hero-tagline-en">
+        Digital Traceability Made Simple: From manual uncertainty, to automated confidence
+      </p>
+
+      <!-- FRASE INDÚSTRIA 5.0 -->
+      <p class="hero-claim">
+        Indústria 5.0: traçabilitat digital i automatitzada amb tecnologia RFID,
+        garantint un seguiment exhaustiu de cada armari,<br>
+        des de la matèria primera fins al client final.
+      </p>
+
+      <!-- BOTONS -->
+     <div class="hero-cta-row">
+  <a href="#context" class="pill-btn">Descobreix el projecte</a>
+  <a href="#arquitectura" class="pill-btn">Com funciona TraceChain?</a>
+</div>
+
+
+    </div>
+  </section>
+
+  <!-- CONTEXT I SITUACIÓ ACTUAL -->
+<section id="context">
+  <div class="section-inner">
+    <p class="section-kicker">Context i situació actual</p>
+    
+
+    <div class="context-grid">
+
+      <!-- COLUMNA ESQUERRA · PLANTA -->
+      <article class="context-card context-card--green context-card-plant">
+        <div class="context-card-header">
+          <!-- ICONO PLANTA -->
+<div class="context-card-icon">
+  <img src="emoji_planta_molins.png"
+       alt="Icona planta de Molins de Rei">
+</div>
+
+          <h3 class="context-card-title">La planta de Molins de Rei</h3>
+        </div>
+
+        <p>
+          Schneider Electric fabrica tres famílies principals d’armaris elèctrics:
+        </p>
+
+        <div class="cabinet-stack">
+
+
+          <!-- PLS -->
+          <div class="cabinet-item">
+            <img src="PLS.png" alt="Armari PLS" />
+            <div class="cabinet-meta">
+              <div class="cabinet-meta-title">PLS · model senzill</div>
+              <ul class="cabinet-spec">
+                <li>2 peces (fons i tapa)</li>
+                <li>2 premses</li>
+                <li>2 localitzacions de muntatge</li>
+                <li>Procés manual</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- PLM -->
+          <div class="cabinet-item">
+            <img src="PLM.png" alt="Armari PLM" />
+            <div class="cabinet-meta">
+              <div class="cabinet-meta-title">PLM · model avançat</div>
+              <ul class="cabinet-spec">
+                <li>2 peces (fons i porta)</li>
+                <li>7 premses</li>
+                <li>3 localitzacions de muntatge</li>
+                <li>Procés automatitzat + manual</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- PLA -->
+          <div class="cabinet-item">
+            <img src="PLA.png" alt="Armari PLA" />
+            <div class="cabinet-meta">
+              <div class="cabinet-meta-title">PLA · model complexe</div>
+              <ul class="cabinet-spec">
+                <li>Entre 8 i 12 peces</li>
+                <li>13 premses</li>
+                <li>5 localitzacions de muntatge</li>
+                <li>Procés manual</li>
+              </ul>
+            </div>
+          </div>
+
+          
+
+
+        </div>
+      </article>
+
+      <!-- COLUMNA DRETA · PROCÉS -->
+      <article class="context-card context-card--green context-card-process">
+        <div class="context-card-header">
+          <!-- ICONO PROCÉS -->
+<div class="context-card-icon">
+  <img src="emoji_proces.png"
+       alt="Icona procés de fabricació">
+</div>
+
+          <h3 class="context-card-title">Procés de fabricació</h3>
+        </div>
+
+        <p>
+          Les peces es fabriquen a partir de bobines de polièster que es tallen, es premsen i es modelen fins a obtenir les peces que formaran cada armari. Un cop fabricades, s’emmagatzemen i es combinen en diferents ordres segons el model i les necessitats del client. En el cas del PLS, es fabriquen grans volums de tapes, que s’emmagatzemen i es van muntant a mesura que es fabriquen els fons, tal com es mostra al diagrama de flux següent.
+        </p>
+
+        <div class="process-flow">
+          <img src="flujo_fabricacion.png"
+               alt="Flux de fabricació dels armaris" />
+        </div>
+      </article>
+
+      <!-- FRANJA INFERIOR · REPTE -->
+      <article class="context-card context-card--challenge">
+        <div class="context-card-header">
+          <!-- ICONO REPTE -->
+<div class="context-card-icon">
+  <img src="emoji_repte.png"
+       alt="Icona repte actual">
+</div>
+
+          <h3 class="context-card-title">El repte</h3>
+        </div>
+
+        <div class="context-card-body">
+
+        <p>
+          La traçabilitat actual és <strong>molt manual:</strong> l’operari genera un número aleatori (Python) per assignar un identificador a cada peça i, amb un segell de numeració, estampa cada peça. Posteriorment, les peces es classifiquen i es munten, rebent un codi QR per al client. Davant d’una incidència, reconstruir el cicle de vida d’un armari a partir d’aquests registres pot ser lent i complex.
+        </p>
+
+
+        <!-- Fila d’imatges petites -->
+    <div class="challenge-images">
+      <img src="repte1.png" alt="Segell de numeració manual" />
+      <img src="repte2.png" alt="Codi numèric marcat a l’armari" />
+      <img src="repte3.png" alt="Etiqueta amb codi QR i identificador" />
+    </div>
+
+
+
+
+
+        <p>
+          <br>Aquesta metodologia és <strong>propensa a errors</strong> i dificulta
+          tenir una visió clara de què ha passat en cada etapa del procés de
+          fabricació.
+        </p>
+        </div>
+
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- OBJECTIUS -->
+  <section id="objectius">
+    <div class="section-inner">
+      <p class="section-kicker">Objectius</p>
+      <h2 class="section-title">Què vol aconseguir TraceChain?</h2>
+      
+
+<div class="goals-list">
+  <!-- Targeta 1 -->
+  <article class="goal-card">
+    <div class="goal-card-header">
+      <div class="goal-card-number">01</div>
+      <h3 class="goal-card-title">
+        Excel·lència operativa
+      </h3>
+    </div>
+    <div class="goal-card-body">
+      Consolidar Schneider Electric com a referent en qualitat industrial, impulsant l'excel·lència operativa i millorant l'experiència del client amb la major traçabilitat de cada peça identificades de manera automàtica.
+    </div>
+  </article>
+
+  <!-- Targeta 2 -->
+  <article class="goal-card">
+    <div class="goal-card-header">
+      <div class="goal-card-number">02</div>
+      <h3 class="goal-card-title">
+        Dades al centre del procés
+      </h3>
+    </div>
+    <div class="goal-card-body">
+      <p>
+        Aprofitar millor la informació que ja es genera a la planta per millorar la presa de decisions i tenir visibilitat precisa de cada etapa de fabricació, des del material d'origen fins a l'expedició.
+      </p>
+    </div>
+  </article>
+
+  <!-- Targeta 3 -->
+  <article class="goal-card">
+    <div class="goal-card-header">
+      <div class="goal-card-number">03</div>
+      <h3 class="goal-card-title">
+        Monitorització i optimització
+      </h3>
+    </div>
+    <div class="goal-card-body">
+      Monitoritzar KPIs clau, garantir la qualitat del producte i optimitzar al màxim el rendiment global de la planta amb eines d'anàlisi avançades.
+    </div>
+  </article>
+</div>
+
+
+    </div>
+  </section>
+
+
+ <!-- SOLUCIO -->
+<section id="solucio">
+  <div class="section-inner">
+    <p class="section-kicker">Solució</p>
+    <h2 class="section-title">D’aquí neix TraceChain</h2>
+    <p class="section-description">
+      Transformar la fabricació en un procés traçable, intel·ligent i automatitzat: Indústria 5.0
+    </p>
+
+    <div class="solution-rows">
+      <!-- 01 -->
+      <article class="solution-row">
+        <div class="solution-row-badge">01</div>
+        <div class="solution-row-card">
+          <h3 class="solution-row-title">Identitat digital per a cada peça</h3>
+          <p class="solution-row-text">
+            Cada peça important rep una identitat digital mitjançant una etiqueta electrònica de baix cost que es pot llegir automàticament al llarg de tot el procés de fabricació.
+          </p>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="solution-row">
+        <div class="solution-row-badge">02</div>
+        <div class="solution-row-card">
+          <h3 class="solution-row-title">Node intel·ligent</h3>
+          <p class="solution-row-text">
+            Un node de control amb una capa d’Intel·ligència Artificial entén el flux de fabricació, valida les lectures i connecta el món físic de les peces amb el món digital, sense canviar la manera de treballar dels operaris.
+          </p>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="solution-row">
+        <div class="solution-row-badge">03</div>
+        <div class="solution-row-card">
+          <h3 class="solution-row-title">Passaport digital</h3>
+          <p class="solution-row-text">
+            Tota la informació es guarda en un historial digital que actua com un "passaport" de cada armari, permetent reconstruir el seu cicle de vida complet des del material d'origen fins a l'expedició.
+          </p>
+        </div>
+      </article>
+    </div>
+          <div class="solution-cta-wrapper">
+  <a href="#arquitectura" class="btn-primary btn-primary--architecture">
+    Veure l'arquitectura
+    <span class="btn-primary-icon">➜</span>
+  </a>
+</div>
+
+
+  </div>
+</section>
+
+
+
+<!-- ARQUITECTURA -->
+<section id="arquitectura" class="architecture-section">
+  <div class="section-inner">
+    <p class="section-kicker">Arquitectura del sistema</p>
+    <h2 class="section-title">
+      De la lectura RFID a la decisió: una arquitectura en tres nivells
+    </h2>
+
+    <p class="section-description architecture-intro">
+      Amb tres capes perfectament coordinades, TraceChain converteix les lectures
+      RFID en un fil digital continu que acompanya cada armari al llarg de tot el
+      seu cicle de vida: des dels punts de lectura a planta fins a l’historial de
+      dades al núvol.
+    </p>
+
+    <div class="architecture-flow">
+
+      <!-- META + FLECHA 1 -->
+      <div class="architecture-step-meta">
+        <p class="architecture-step-label">Punts de lectura</p>
+        <div class="architecture-arrow">↓</div>
+      </div>
+
+      <!-- CAPA 1 -->
+      <article class="architecture-card">
+        <div class="architecture-icon-wrap">
+          <img src="arquitectura1.png" alt="Lectors RFID a planta" class="architecture-icon">
+        </div>
+        <div class="architecture-card-body">
+  <h3 class="architecture-card-title">Capa física (Front-End RFID)</h3>
+
+  <div class="architecture-card-text">
+    <p>
+      Punts de lectura distribuïts a les etapes clau de fabricació i muntatge
+      que identifiquen peces i armaris de manera automàtica, sense intervenció manual. Els punts de lectura es construeixen sobre un sistema RFID i elements auxiliars que reforcen la traçabilitat:
+    </p>
+
+    <!-- Recuadro 1: Sistema RFID -->
+    <div class="architecture-subbox">
+      <p class="architecture-subbox-title">Sistema RFID</p>
+      <p>
+        <strong style="color:#22c55e;">→ Lector:</strong>
+        dispositiu que recull les lectures dels tags i les envia en temps real a la capa lògica.<br>
+        <strong style="color:#22c55e;">→ Antena:</strong>
+        crea el camp de radiofreqüència a la zona de pas i alimenta els tags perquè es puguin llegir.<br>
+        <strong style="color:#22c55e;">→ Tag:</strong>
+        etiqueta RFID de baix cost fixada a la peça, amb un ID únic.
+      </p>
+    </div>
+
+    <!-- Recuadro 2: Elements auxiliars -->
+    <div class="architecture-subbox">
+      <p class="architecture-subbox-title">Elements auxiliars de traçabilitat</p>
+      <p>
+        <strong style="color:#22c55e;">→ Lector de codi de barres:</strong>
+        identifica la matèria primera mitjançant el codi de barres i l’associa
+        a la peça corresponent a la capa de dades.<br>
+        <strong style="color:#22c55e;">→ Lector de codi QR:</strong>
+        escaneja l’armari ja muntat en l’últim pas i relaciona el seu codi QR
+        amb tots els tags llegits de l'armari muntat.
+      </p>
+    </div>
+  </div>
+</div>
+
+      </article>
+
+      <!-- META + FLECHA 2 -->
+      <div class="architecture-step-meta">
+        <p class="architecture-step-label">Processament local</p>
+        <div class="architecture-arrow">↓</div>
+      </div>
+
+      <!-- CAPA 2 -->
+     <!-- 02 · Capa lògica (Middle-End d’Edge + IA) -->
+
+<article class="architecture-card">
+  <div class="architecture-icon-wrap">
+    <img src="arquitectura2.png" alt="Icona capa lògica (Edge + IA)">
+  </div>
+
+  <div class="architecture-card-body">
+    <h3 class="architecture-card-title">Capa lògica (Middle-End d’Edge + IA)</h3>
+
+    <div class="architecture-card-text">
+      <p>
+        Equips que processen les lectures, comproven la coherència (peces correctes, ordre correcte)
+        i connecten el món físic amb el digital enviant la informació de forma segura cap a la capa
+        de dades. Aquí s’hi integra una capa d’Intel·ligència Artificial que detecta incoherències,
+        anticipa possibles errades i ajuda a millorar el rendiment de la fabricació.
+      </p>
+
+      <!-- Subcaixa 1: equip de processament a l’Edge -->
+      <div class="architecture-subbox">
+        <p class="architecture-subbox-title">Equip de processament</p>
+        <p>
+          <strong style="color:#22c55e;">→ Ordinador local:</strong>
+          punt de registre i supervisió de planta.<br>
+
+          <strong style="color:#22c55e;">→ Raspberry Pi:</strong>
+          node central de gestió. Agrega les lectures RFID i entrades auxiliars,
+          aplica regles de coherència (peces correctes, ordre correcte) i envia
+          els esdeveniments validats cap a la capa de dades.<br>
+
+          <strong style="color:#22c55e;">→ PLC:</strong>
+          proporciona paràmetres clau de fabricació (pressió, temps, temperatura, etc.)
+          procedents de les premses i línies de producció, que s’associen a cada
+          peça per enriquir la traçabilitat i permetre controls de qualitat.<br>
+
+          <strong style="color:#22c55e;">→ Auxiliars:</strong>
+          integració de lectors de codi de barres i de codi QR com a entrades
+          addicionals de procés.
+        </p>
+      </div>
+
+      <!-- Subcaixa 2: Intel·ligència Artificial -->
+      <div class="architecture-subbox">
+        <p class="architecture-subbox-title">Intel·ligència Artificial</p>
+        <p>
+          S’integra a l’Edge com un mòdul de validació que reforça la
+          fiabilitat amb un encert aproximat del 98,5&nbsp;%. A partir de les característiques
+          de la lectura RFID, el model estima la probabilitat que un tag es trobi realment dins
+          l’àrea de lectura prevista, reduint falses associacions quan el confinament
+          electromagnètic no és perfecte. Això contribueix a una traçabilitat més robusta
+          i a una millora contínua del rendiment de la fabricació.
+        </p>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+      <!-- META + FLECHA 3 -->
+      <div class="architecture-step-meta">
+        <p class="architecture-step-label">Historial i consultes</p>
+        <div class="architecture-arrow">↓</div>
+      </div>
+
+      <!-- CAPA 3 -->
+<article class="architecture-card">
+  <div class="architecture-icon-wrap">
+    <img src="arquitectura3.png" alt="Dades i núvol" class="architecture-icon">
+  </div>
+
+  <div class="architecture-card-body">
+    <h3 class="architecture-card-title">Capa de dades (Back-End: Base de dades + Cloud)</h3>
+
+    <div class="architecture-card-text">
+      <p>
+        Una plataforma de dades guarda l’historial de lots, peces i armaris. Permet fer
+        consultes ràpides i generar informes de traçabilitat per qualitat, producció o servei
+        postvenda, sense exposar detalls interns de la infraestructura tecnològica.
+      </p>
+
+      <!-- Subcaixa única -->
+      <div class="architecture-subbox">
+        <p class="architecture-subbox-title">Plataforma de dades</p>
+        <p>
+          <strong style="color:#22c55e;">→ Base de dades:</strong>
+          emmagatzema de forma estructurada el conjunt de paràmetres de l’associació
+          lot → peça → armari.<br>
+
+          <strong style="color:#22c55e;">→ Cloud:</strong>
+          agrupa dades de diverses línies o plantes sense dependre d’un únic punt local.
+        </p>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- CAS D'US -->
+  <section id="cas-usu">
+    <div class="section-inner">
+      <p class="section-kicker">Cas d’ús</p>
+      <h2 class="section-title">De PLS a PLM, i més enllà</h2>
+      <p class="section-description">
+        Per validar la solució, TraceChain s’aplica inicialment als armaris PLS,
+        el model més senzill, i es prepara el camí per estendre la mateixa
+        filosofia a famílies més complexes.
+      </p>
+
+      <div class="case-card">
+        <div class="case-badges">
+          <span class="case-badge">PLS · pilot inicial</span>
+          <span class="case-badge">PLM · ampliació</span>
+          <span class="case-badge">PLA · futur escalable</span>
+        </div>
+        <p>
+          Els armaris PLS, formats per un fons i una tapa, són el punt de partida
+          ideal per provar la traçabilitat peça per peça i validar el flux de
+          dades de TraceChain en un entorn real.
+        </p>
+        <p>
+          Un cop consolidat el pilot, la mateixa base es pot aplicar als armaris
+          PLM, que incorporen més etapes i muntatge automatitzat. La traçabilitat
+          digital es manté, encara que el procés sigui més ric i divers.
+        </p>
+        <p>
+          A llarg termini, l’arquitectura està pensada per créixer també cap a
+          famílies com PLA o altres línies de producte, sense haver de redissenyar
+          el sistema des de zero: només cal afegir nous punts de lectura i
+          adaptar la lògica de seguiment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+    <!-- INFRAESTRUCTURA TRACECHAIN A PLANTA -->
+  <section id="infraestructura">
+    <div class="section-inner">
+      <p class="section-kicker">Infraestructura a planta</p>
+      <h2 class="section-title">Infraestructura TraceChain a planta</h2>
+      <p class="section-description">
+        TraceChain es materialitza a planta combinant punts de lectura adaptats al taller,
+        un node intel·ligent que entén el procés i una plataforma de dades que guarda
+        l’historial de cada armari.
+      </p>
+
+      <div class="solution-grid infra-grid">
+        <!-- Bloc 1: Lectors adaptats al taller -->
+        <article class="solution-card">
+          <div class="solution-icon">📡</div>
+          <h3 class="solution-title">Punts de lectura dissenyats per a la fàbrica</h3>
+          <p class="solution-text">
+            TraceChain incorpora punts de lectura pensats específicament per a la planta de
+            Molins de Rei: arcs que permeten identificar armaris i palets en moviment, i
+            túnels integrats a les línies de transport.
+            Aquests punts creen un “passadís invisible” on cada peça o armari es llegeix de
+            manera automàtica, sense contacte físic ni passos addicionals per als operaris,
+            mantenint el ritme actual de producció.
+          </p>
+        </article>
+
+        <!-- Bloc 2: Node intel·ligent -->
+        <article class="solution-card">
+          <div class="solution-icon">🧠</div>
+          <h3 class="solution-title">Un node intel·ligent que orquestra el flux</h3>
+          <p class="solution-text">
+            Les lectures dels punts de lectura arriben a un node intel·ligent que valida
+            la informació i comprova que les peces, els models i les etapes del procés
+            són coherents.
+            Aquest node actua com a pont entre el taller i la plataforma de dades:
+            recull els esdeveniments de planta, aplica regles de negoci i envia només la
+            informació rellevant, de manera segura i estructurada.
+            Sobre aquesta base, en el futur es poden incorporar algoritmes avançats per
+            detectar anomalies, optimitzar paràmetres de procés o anticipar possibles
+            incidències.
+          </p>
+        </article>
+
+        <!-- Bloc 3: Prototip i desplegament -->
+        <article class="solution-card">
+          <div class="solution-icon">🧪</div>
+          <h3 class="solution-title">De prototip de lab a desplegament a planta</h3>
+          <p class="solution-text">
+            La infraestructura de TraceChain s’ha validat primer en un entorn de laboratori,
+            combinant lector, node intel·ligent i sistemes de control per reproduir el
+            comportament real de la planta.
+            A partir d’aquest prototip, s’ha definit un desplegament per etapes:
+            <br><br>
+            <strong>Fabricació:</strong> cada peça rep una identitat digital des del primer moment.
+            <br>
+            <strong>Muntatge:</strong> es relacionen conjunts de peces per formar cada armari.
+            <br>
+            <strong>Expedició:</strong> es valida que l’armari que surt de la planta correspon
+            al que s’ha fabricat i muntat.
+            <br><br>
+            Aquest enfoc gradual permet introduir TraceChain sense interrompre la producció
+            i mesurant l’impacte real en cada fase.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BENEFICIS -->
+  <section id="beneficis">
+    <div class="section-inner">
+      <p class="section-kicker">Beneficis</p>
+      <h2 class="section-title">Què aporta TraceChain a Schneider Electric?</h2>
+      <p class="section-description">
+        La solució està dissenyada per tenir impacte directe en la qualitat, en el
+        dia a dia de la planta i en la relació amb els clients.
+      </p>
+
+      <div class="benefits-grid">
+        <article class="benefit-card">
+          <div class="benefit-icon">✅</div>
+          <h3 class="benefit-title">Qualitat i traçabilitat millorades</h3>
+          <p class="benefit-text">
+            Saber exactament d’on ve cada peça i en quines condicions s’ha
+            fabricat, facilitant auditories internes i externes i reduint la
+            incertesa davant qualsevol incidència.
+          </p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-icon">⚡</div>
+          <h3 class="benefit-title">Resposta ràpida davant incidències</h3>
+          <p class="benefit-text">
+            Davant una reclamació de client, és possible identificar en minuts
+            quins lots, peces i condicions de procés estan relacionats amb aquell
+            armari, agilitzant l’anàlisi i la resolució.
+          </p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-icon">📈</div>
+          <h3 class="benefit-title">Decisions basades en dades</h3>
+          <p class="benefit-text">
+            Eines de dades per optimitzar processos, temps de cicle i ús de
+            recursos, obrint la porta a millores contínues i a anàlisis més
+            avançades en el futur.
+          </p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-icon">🛠️</div>
+          <h3 class="benefit-title">Menys tasques manuals repetitives</h3>
+          <p class="benefit-text">
+            Reducció d’anotacions manuals i de registres duplicats, alliberant
+            temps dels operaris perquè es puguin centrar en tasques de més valor.
+          </p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-icon">🌱</div>
+          <h3 class="benefit-title">Preparació per a noves normatives</h3>
+          <p class="benefit-text">
+            Una traçabilitat sòlida ajuda a complir futures normatives europees de
+            sostenibilitat, transparència i responsabilitat sobre el cicle de vida
+            dels productes.
+          </p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-icon">🤝</div>
+          <h3 class="benefit-title">Més confiança del client</h3>
+          <p class="benefit-text">
+            Disposar d’un “passaport digital” per a cada armari enforteix la
+            confiança del client en el producte final i en la capacitat de resposta
+            de Schneider Electric.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- ROADMAP (ARA ABANS DE L'EQUIP) -->
+  <section id="roadmap">
+    <div class="section-inner">
+      <p class="section-kicker">Roadmap</p>
+      <h2 class="section-title">Pròxims passos de TraceChain</h2>
+      <p class="section-description">
+        TraceChain està concebut com una base sòlida sobre la qual es poden
+        construir noves funcionalitats d’anàlisi i intel·ligència artificial en el
+        futur. El camí previst es pot resumir en tres grans fases.
+      </p>
+
+      <div class="roadmap-wrapper">
+        <div class="roadmap-line">
+          <div class="roadmap-item">
+            <div class="roadmap-dot">1</div>
+            <div class="roadmap-title">Prova pilot a la planta</div>
+            <p class="roadmap-text">
+              Implementar TraceChain en una línia pilot centrada en els armaris
+              PLS, validar les lectures automàtiques i assegurar que el flux de
+              dades és coherent amb la realitat de producció.
+            </p>
+          </div>
+
+          <div class="roadmap-item">
+            <div class="roadmap-dot">2</div>
+            <div class="roadmap-title">
+              Desplegament progressiu a més línies i famílies
+            </div>
+            <p class="roadmap-text">
+              Estendre la solució a altres famílies d’armaris, com PLM, i ampliar
+              el nombre de punts de lectura a la planta, mantenint la mateixa base
+              modular de TraceChain.
+            </p>
+          </div>
+
+          <div class="roadmap-item">
+            <div class="roadmap-dot">3</div>
+            <div class="roadmap-title">
+              Integració i explotació avançada de dades
+            </div>
+            <p class="roadmap-text">
+              Connectar TraceChain amb altres sistemes corporatius i aprofitar les
+              dades històriques per desenvolupar funcionalitats avançades
+              d’anàlisi, predicció i suport a la decisió, sempre amb la tecnologia
+              al servei de les persones.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIP DEL PROJECTE (ARA ÚLTIMA SECCIÓ ABANS DEL FOOTER) -->
+  <section id="equip">
+    <div class="section-inner">
+      <p class="section-kicker">Equip</p>
+      <h2 class="section-title">Equip de TraceChain</h2>
+      <p class="section-description">
+        TraceChain és el resultat d’una col·laboració estreta entre estudiantat de
+        la Universitat Autònoma de Barcelona i l’equip de la planta de Schneider
+        Electric a Molins de Rei.
+      </p>
+
+      <div class="team-grid">
+        <div class="team-photo-placeholder">
+          Espai per a la fotografia de grup de l’equip de TraceChain
+          (estudiantat UAB + equip de Schneider Electric Molins de Rei).
+        </div>
+        <div>
+          <h3 style="font-size:1rem; margin-bottom:0.4rem;">Membres de l’equip (exemple)</h3>
+          <div class="team-members">
+            <span>Nom Cognom – Coordinació del projecte</span>
+            <span>Nom Cognom – Anàlisi de procés i planta</span>
+            <span>Nom Cognom – Disseny de solució i dades</span>
+            <span>Nom Cognom – Integració i validació a planta</span>
+          </div>
+          <p class="team-tagline">
+            El projecte combina coneixement de procés, qualitat i dades per
+            construir una solució de traçabilitat que sigui útil tant per als
+            operaris de planta com per als equips de gestió i enginyeria.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-logos">
+        <div class="logo-box">Logotip Schneider Electric</div>
+        <div class="logo-box">Logotip UAB</div>
+      </div>
+      <div>
+        Projecte acadèmic desenvolupat a la Universitat Autònoma de Barcelona en
+        col·laboració amb Schneider Electric – Planta de Molins de Rei. La web
+        presenta la visió, els objectius i els beneficis de TraceChain sense
+        revelar la implementació tècnica detallada.
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
