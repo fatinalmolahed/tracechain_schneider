@@ -3643,3 +3643,49 @@ section {
   }
 }
 
+/* MOBILE: mismo margen a izquierda y derecha para TODO */
+@media (max-width: 768px) {
+  .section-inner {
+    padding-inline: 0.5rem;  /* margen lateral mínimo en móvil */
+  }
+}
+
+/* MÒBIL / TABLET: targetes ben aprofitades a l'ample */
+@media (max-width: 1024px) {
+
+  /* fora paddings globals molestos */
+  body,
+  main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* columna principal gairebé a sang */
+  .section-inner {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: 0.5rem;   /* ~4 px a cada costat */
+    padding-right: 0.5rem;
+  }
+
+  /* TOTES LES TARGETES I BLOCS IMPORTANTS */
+  .context-card,
+  .goal-card,
+  .solution-row,
+  .solution-row-card,
+  .solution-card,
+  .architecture-card,
+  .architecture-subbox,
+  .architecture-extra-media,
+  .benefit-card,
+  .roadmap-wrapper,
+  .roadmap-item,
+  .team-card {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    box-sizing: border-box;
+  }
+}
