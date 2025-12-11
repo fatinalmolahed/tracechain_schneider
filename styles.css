@@ -1558,13 +1558,7 @@ section {
 }
 
 
-/* Fila d’imatges dins del repte actual */
-.challenge-images {
-  display: flex;
-  gap: 1.25rem;
-  margin: 1.25rem 0 0.75rem;
-  align-items: center;
-}
+
 
 .challenge-images img {
   width: 64px;          /* tamaño pequeñito */
@@ -1576,9 +1570,7 @@ section {
 
 /* Por si en mòbil necesitas que respiren mejor */
 @media (max-width: 768px) {
-  .challenge-images {
-    justify-content: space-between;
-  }
+  
 
   .challenge-images img {
     width: 56px;
@@ -2106,12 +2098,7 @@ section {
   justify-content: center;
 }
 
-.architecture-icon {
-  width: 100%;
-  height: 100%;
-  border-radius: 12px; /* suaviza esquinas del icono */
-  object-fit: contain;
-}
+
 
 .architecture-card-body {
   flex: 1 1 auto;
@@ -2390,12 +2377,6 @@ section {
   justify-content: center;
 }
 
-.architecture-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  image-rendering: pixelated; /* porque tus iconos son tipo pixel */
-}
 
 /* Texto de la tarjeta */
 .architecture-card-body {
@@ -2624,7 +2605,6 @@ section {
 }
 
 /* Mateix tractament de la imatge */
-.architecture-icon,
 .architecture-card-icon img {
   width: 100%;
   height: 100%;
@@ -2653,17 +2633,6 @@ section {
   border: 1px solid rgba(255,255,255,0.06);
 }
 
-/* La imagen no debe ser pixelada ni recortada */
-#arquitectura .architecture-icon{
-  width: 100%;
-  height: 100%;
-
-  object-fit: contain;     /* NO cover */
-  image-rendering: auto;   /* NO pixelated */
-  
-  /* el wrap ya da la forma */
-  border-radius: 0;
-}
 
 /* ===== ICONOS ARQUITECTURA · tamaño más pequeño y consistente ===== */
 #arquitectura .architecture-icon-wrap{
@@ -2680,12 +2649,6 @@ section {
   border: 1px solid rgba(255,255,255,0.06);
 }
 
-#arquitectura .architecture-icon{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;   /* evita recortes raros */
-  image-rendering: auto; /* evita "gastado" */
-}
 
 /* Ajuste extra de equilibrio visual */
 #arquitectura .architecture-card{
@@ -2697,6 +2660,990 @@ section {
   #arquitectura .architecture-icon-wrap{
     width: 42px;
     height: 42px;
+  }
+}
+
+.architecture-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px; /* opcional */
+  object-fit: contain;
+}
+
+/* ===== ARQUITECTURA · IMATGES EXTRA (ajuste) ===== */
+
+/* Grid de 2 columnas: la SEGONA (diagrama) més ampla */
+.architecture-extra-media{
+  margin-top: 2.2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 900px){
+  .architecture-extra-media{
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.35fr);
+    align-items: flex-start;
+  }
+}
+
+/* Sense caixa de fons ni marc a la figura */
+.architecture-figure{
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* La imatge fa de "prota" amb una mica de corner round */
+.architecture-figure img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+}
+
+/* Peu de foto en verd corporatiu */
+.architecture-figure figcaption{
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #22c55e;
+}
+
+.architecture-figure figcaption{
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #22c55e;
+  text-align: center;      /* ← centra el text sota la imatge */
+}
+
+/* Infraestructura: bloc únic de l'arc RFID */
+.infra-arc-card{
+  margin-top: 1.7rem; /* mismo aire que tenía el grid antes */
+}
+
+.infra-arc-text{
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+/* parts importants en verd corporatiu */
+.infra-arc-text strong{
+  color: #22c55e;
+  font-weight: 600;
+}
+
+/* Mateix to de lletra que la secció d'Intel·ligència Artificial */
+.infra-arc-text{
+  color: #d0d7e2;          /* mateix gris suau que uses a arquitectura */
+}
+
+/* mantenim el verd per als destacats */
+.infra-arc-text strong{
+  color: #22c55e;
+  font-weight: 600;
+}
+
+/* --- SOLUCIÓ · mateix efecte "flotar" que OBJECTIUS --- */
+
+/* Transició suau per a les targetes de Solució */
+#solucio .solution-row{
+  transition: transform 0.22s ease,
+              box-shadow 0.22s ease,
+              border-color 0.22s ease;
+}
+
+/* Quan passes el cursor, que es "levantin" com a Objectius */
+#solucio .solution-row:hover{
+  transform: translateY(-6px);                         /* puja una mica */
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);         /* ombra marcada */
+  border-color: rgba(0, 255, 120, 0.35);               /* vora verd més viva */
+}
+
+/* --- ARQUITECTURA: efecto “flotar” solo en las subcasillas --- */
+
+.architecture-subbox {
+  /* mantenemos su estilo actual, solo añadimos transición */
+  transition: transform 0.22s ease,
+              box-shadow 0.22s ease,
+              border-color 0.22s ease,
+              background-color 0.22s ease;
+}
+
+.architecture-subbox:hover {
+  transform: translateY(-6px);                          /* se levanta un poco */
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);          /* sombra como Objectius */
+  border-color: rgba(0, 255, 120, 0.35);                /* borde verde más vivo */
+  background: rgba(15, 23, 42, 0.95);                   /* un pelín más sólido al pasar el ratón */
+}
+/* --- ARQUITECTURA: efecto “flotar” solo en las subcasillas, SIN cambiar color --- */
+
+.architecture-subbox{
+  transition: transform 0.22s ease,
+              box-shadow 0.22s ease,
+              border-color 0.22s ease;
+}
+
+.architecture-subbox:hover{
+  transform: translateY(-6px);                 /* se levanta un poco */
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55); /* sombra flotante */
+  border-color: rgba(0, 255, 120, 0.35);       /* borde un poco más vivo */
+  /* ojo: SIN background aquí, así mantiene el color original */
+}
+
+/* === ARQUITECTURA · subcaselles flotant però sense canvi de color === */
+
+/* Estil base unificat per totes les subcaixes */
+#arquitectura .architecture-subbox{
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(34, 197, 94, 0.45);
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+  transition: transform 0.22s ease,
+              box-shadow 0.22s ease,
+              border-color 0.22s ease;
+}
+
+/* Hover: mateix fons, només “flota” */
+#arquitectura .architecture-subbox:hover{
+  background: rgba(15, 23, 42, 0.85) !important;  /* mateix color, forçat */
+  border-color: rgba(0, 255, 120, 0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);
+}
+
+/* === ARQUITECTURA · subcaselles flotant però sense canvi de color === */
+
+/* Estil base unificat per totes les subcaixes */
+#arquitectura .architecture-subbox{
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(34, 197, 94, 0.45);
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+  transition: transform 0.22s ease,
+              box-shadow 0.22s ease,
+              border-color 0.22s ease;
+}
+
+/* Hover: mateix fons, només “flota” */
+#arquitectura .architecture-subbox:hover{
+  background: rgba(15, 23, 42, 0.85) !important;  /* mateix color, forçat */
+  border-color: rgba(0, 255, 120, 0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);
+}
+
+/* Subcaselles de les capes (Sistema RFID, Equip de processament, etc.) */
+#arquitectura .architecture-subbox{
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.75);         /* MISMO color base */
+  border: 1px solid rgba(34, 197, 94, 0.45);  /* borde verd suau */
+
+  transition: transform 0.22s ease,
+              box-shadow 0.22s ease,
+              border-color 0.22s ease;
+}
+
+/* Hover: solo flotar + sombra, SIN cambiar de color */
+#arquitectura .architecture-subbox:hover{
+  background: rgba(15, 23, 42, 0.75);         /* mismo fondo, por si acaso */
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);
+  border-color: rgba(0, 255, 120, 0.35);
+}
+
+
+/* === ARQUITECTURA · subcaselles amb fons transparent + efecte flotant === */
+
+#arquitectura .architecture-subbox{
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+
+  background-color: transparent !important;          /* fons transparent */
+  border: 1px solid rgba(34, 197, 94, 0.45);
+
+  transition: transform 0.22s ease,
+              box-shadow 0.22s ease,
+              border-color 0.22s ease;
+}
+
+#arquitectura .architecture-subbox:hover{
+  background-color: transparent !important;          /* segueix transparent */
+  transform: translateY(-6px);                       /* flota */
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);       /* ombra */
+  border-color: rgba(0, 255, 120, 0.35);             /* vora una mica més viva */
+}
+
+/* === INFRAESTRUCTURA · casella única amb fons transparent + flotant === */
+
+/* Estat normal */
+#infraestructura .infra-arc-card{
+  background-color: transparent !important;           /* sense fons propi */
+  border-radius: 18px;
+  border: 1px solid rgba(34, 197, 94, 0.45);
+  box-shadow: none;
+
+  transition: transform 0.22s ease,
+              box-shadow 0.22s ease,
+              border-color 0.22s ease;
+}
+
+/* Hover: només flota i reforça vora/ombra */
+#infraestructura .infra-arc-card:hover{
+  background-color: transparent !important;           /* segueix transparent */
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);
+  border-color: rgba(0, 255, 120, 0.35);
+}
+
+/* --- Infraestructura · targeta de vídeo --- */
+
+#infraestructura .infra-video-card{
+  margin-top: 1.8rem;
+  background-color: transparent;
+  border-radius: 18px;
+  border: 1px solid rgba(34, 197, 94, 0.45);
+  padding: 1rem 1.2rem;
+
+  transition: transform 0.22s ease,
+              box-shadow 0.22s ease,
+              border-color 0.22s ease;
+}
+
+#infraestructura .infra-video-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.55);
+  border-color: rgba(0,255,120,0.35);
+}
+
+/* contenedor 16:9 responsive */
+#infraestructura .infra-video-wrapper{
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;      /* 16:9 */
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+#infraestructura .infra-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#infraestructura .infra-video-caption{
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
+  color: #d0d7e2;
+  text-align: center;
+}
+
+/* --- Infraestructura · targeta de vídeo sense flotant ni peu --- */
+
+#infraestructura .infra-video-card{
+  margin-top: 1.8rem;
+  background-color: transparent;
+  border-radius: 18px;
+  border: 1px solid rgba(34, 197, 94, 0.45);
+  padding: 1rem 1.2rem;
+  box-shadow: none;
+  transform: none;
+  transition: none; /* sense animació de hover */
+}
+
+/* Hover neutral: no canvia res */
+#infraestructura .infra-video-card:hover{
+  box-shadow: none;
+  transform: none;
+  border-color: rgba(34, 197, 94, 0.45);
+}
+
+/* mantenim el vídeo responsive */
+#infraestructura .infra-video-wrapper{
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+#infraestructura .infra-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* === VÍDEO DEL HERO === */
+
+.hero-video-wrapper{
+  margin-top: 2rem;
+  max-width: 720px;          /* ancho máximo del vídeo */
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+}
+
+.hero-video{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.roadmap-line {
+  position: relative;
+  margin-left: 0.75rem;
+  padding-left: 1.6rem;      /* desplaza TODO el contenido a la derecha */
+  border-left: 2px solid var(--grey-med);
+}
+
+.roadmap-item {
+  position: relative;
+  padding: 0.7rem 0 0.9rem;  /* sin padding-left */
+}
+
+.roadmap-dot {
+  position: absolute;
+  left: -11px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  
+}
+
+/* === EQUIP DE TREBALL === */
+
+.team-section {
+  padding-top: 6rem;
+}
+
+.team-grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem 4rem;
+}
+
+.team-card {
+  max-width: 260px;
+}
+
+.team-photo-frame {
+  border-left: 6px solid #22c55e;              /* franja verda */
+  border-radius: 18px;
+  overflow: hidden;
+  background: #020617;
+}
+
+.team-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;                          /* proporció tipus retrat */
+}
+
+.team-name {
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f9fafb;
+}
+
+.team-role {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #d1d5db;
+}
+
+/* opcional: centre les targetes en pantalles petites */
+@media (max-width: 768px) {
+  .team-grid {
+    justify-items: center;
+  }
+}
+
+/* ROADMAP */
+
+.roadmap-wrapper {
+  margin-top: 1.7rem;
+}
+
+.roadmap-line {
+  position: relative;
+  margin-left: 0.75rem;
+  padding-left: 1.6rem;           /* puedes dejarlo igual */
+  border-left: 2px solid var(--grey-med);
+}
+
+.roadmap-item {
+  position: relative;
+  padding: 0.7rem 0 0.9rem;
+}
+
+.roadmap-item:last-child {
+  padding-bottom: 0;
+}
+
+.roadmap-dot {
+  position: absolute;
+  left: -11px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #020617;
+  border: 2px solid var(--green-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--green-main);
+}
+
+/* 👇 ESTE TROZO ES LO NUEVO IMPORTANTE */
+.roadmap-title,
+.roadmap-text {
+  margin-left: 0.8rem;            /* separa texto del círculo */
+}
+
+.roadmap-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.roadmap-text {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+
+/* --- EQUIP: 6 targetes en una fila a desktop --- */
+@media (min-width: 1200px) {
+  .team-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 2rem;                 /* menos espacio entre targetes */
+  }
+
+  .team-card {
+    max-width: 155px;          /* hace las targetas más petites */
+  }
+
+  .team-photo-frame {
+    border-left-width: 4px;
+    border-radius: 14px;
+  }
+
+  .team-photo {
+    aspect-ratio: 3 / 4;       /* format retrat, però més petit */
+    object-fit: cover;
+  }
+
+  .team-name {
+    font-size: 0.95rem;
+  }
+
+  .team-role {
+    font-size: 0.8rem;
+  }
+}
+
+/* --- BENEFICIS: targetes flotants --- */
+
+/* Estado base con transición suave */
+.benefit-card {
+  position: relative;
+  transition:
+    transform 0.20s ease-out,
+    box-shadow 0.20s ease-out,
+    border-color 0.20s ease-out;
+}
+
+/* Al passar el cursor, la targeta “flota” */
+.benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.75); /* sombra similar al resto de targetes */
+  border-color: rgba(34, 197, 94, 0.45);       /* vora una mica més viva en verd */
+  /* mantenim el mateix background (#020617), no canviem el color */
+}
+
+/* Imágenes de "El repte" */
+
+
+.challenge-images img {
+  max-width: 160px;          /* un poco más grandes */
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Opcional: en pantallas muy grandes, un pelín más */
+@media (min-width: 1200px) {
+  .challenge-images img {
+    max-width: 180px;
+  }
+}
+
+
+
+.challenge-images img {
+  max-width: 90px;   /* antes 110px */
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+/* En pantallas muy grandes */
+@media (min-width: 1200px) {
+  .challenge-images img {
+    max-width: 105px;  /* antes 130px */
+  }
+}
+
+/* La targeta d'"El repte" es comporta normal, només la fem "relative" */
+.challenge-card {
+  position: relative;   /* mantén també els estils que ja tenies: padding, fons, etc. */
+}
+
+/* Columna de la dreta: imatges en vertical, alineades des de dalt */
+
+
+.challenge-images img {
+  max-width: 90px;      /* tamaño moderado: si las quieres más grandes, súbelo */
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Responsive: en pantalles petites, que baixin sota el text */
+@media (max-width: 900px) {
+  .challenge-card {
+    position: static;
+  }
+
+  
+
+  .challenge-images img {
+    max-width: 80px;
+  }
+}
+
+/* ---- El repte: layout en dos columnas ---- */
+
+.challenge-card {
+  /* deja aquí todo lo que ya tenías: fondo, padding, bordes, etc. */
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) 110px; /* texto | columna de imágenes */
+  column-gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Cabecera y párrafos: todos en la columna de la izquierda */
+.challenge-header {
+  grid-column: 1 / 2;
+}
+
+.challenge-card p {
+  grid-column: 1 / 2;
+}
+
+/* Columna derecha: imágenes en vertical empezando arriba */
+.challenge-images {
+  grid-column: 2 / 3;
+  grid-row: 1 / span 3;      /* ocupa desde la primera fila hacia abajo */
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: flex-end;
+}
+
+.challenge-images img {
+  width: 100%;
+  max-width: 95px;           /* ajusta si las quieres un pelín más grandes/pequeñas */
+  border-radius: 8px;
+  display: block;
+}
+
+/* Responsive: en pantallas pequeñas las imágenes bajan debajo del texto */
+@media (max-width: 900px) {
+  .challenge-card {
+    display: block;
+  }
+
+  .challenge-images {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .challenge-images img {
+    max-width: 80px;
+  }
+}
+/* Que el bloc de text ocupi tota l’amplada de la targeta */
+.architecture-card-text {
+  max-width: 100%;      /* quita la limitación de ancho (antes ~720px) */
+}
+
+/* Que cada subcaixa pueda usar toda la anchura disponible */
+.architecture-subbox {
+  width: 100%;
+}
+
+/* Que el text i les subcaixes ocupin tota l’amplada de la targeta */
+
+.architecture-card .architecture-card-text {
+  width: 100% !important;
+  max-width: none !important;   /* anula qualsevol max-width anterior */
+  margin-right: 0 !important;
+}
+
+/* Cada subcaixa pot estirar-se de costat a costat dins la capa */
+
+.architecture-card .architecture-subbox {
+  width: 100%;
+}
+
+/* ==== ARQUITECTURA – que les subcaixes ocupin tota la targeta ==== */
+
+/* 1) El body de la targeta no ha d'estar limitat */
+#arquitectura .architecture-card-body {
+  flex: 1 1 auto;
+  width: 100% !important;
+  max-width: none !important;
+  margin-right: 0 !important;
+}
+
+/* 2) El contenidor del text tampoc pot tenir columna estreta */
+#arquitectura .architecture-card-text {
+  width: 100% !important;
+  max-width: none !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;   /* treu espai extra a la dreta */
+}
+
+/* 3) Cada subcaixa s'estira de banda a banda dins la capa */
+#arquitectura .architecture-subbox {
+  width: 100% !important;
+  max-width: none !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* FOOTER */
+
+#footer {
+  border-top: 1px solid rgba(34, 197, 94, 0.2);
+  margin-top: 5rem;
+  padding: 2.5rem 0 2rem;
+  background: #020712; /* mismo tono que el body, ajusta si hace falta */
+  font-size: 0.9rem;
+  color: var(--text-muted, #a1a1aa);
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  height: 36px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.6));
+}
+
+.footer-text {
+  max-width: 720px;
+  line-height: 1.6;
+  color: var(--text-muted, #a1a1aa);
+}
+
+/* línea de abajo: copyright + botón subir */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  font-size: 0.8rem;
+}
+
+.footer-copy {
+  margin: 0;
+  color: var(--text-muted, #9ca3af);
+}
+
+.footer-backtotop {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+
+  text-decoration: none;
+  color: var(--text-muted, #9ca3af);
+  cursor: pointer;
+}
+
+.footer-backtotop span {
+  font-size: 0.9rem;
+  transform: translateY(-1px);
+}
+
+.footer-backtotop:hover {
+  color: #22c55e; /* verde TraceChain */
+}
+
+/* responsivo: en pantallas pequeñas, todo en columna */
+@media (max-width: 640px) {
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-backtotop {
+    margin-left: 0;
+  }
+}
+
+/* --- Flotante en las CAPAS principales --- */
+.architecture-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.architecture-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+  border-color: rgba(34, 197, 94, 0.6); /* verde un poco más vivo */
+}
+
+/* --- Subcasillas SIN flotante --- */
+.architecture-subbox {
+  /* mantenemos tu estilo base pero sin animaciones */
+  transform: none;
+  box-shadow: none;
+  transition: none;
+}
+
+/* por si antes tenías hover en la subbox, lo anulamos */
+.architecture-subbox:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: inherit;
+}
+
+/* Fix logo desplaçat a mòbil */
+@media (max-width: 768px) {
+  .nav {
+    padding: 12px 16px;
+  }
+
+  .nav-left {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-logo-link {
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .nav-logo-image {
+    position: static;   /* anul·la absolute/fixed si els tenies */
+    transform: none;    /* anul·la translateX(-…) o similars */
+    margin: 0;          /* anul·la marges negatius */
+    max-width: 120px;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Desactivar completamente el hover de las subcasillas */
+.architecture-subbox,
+.architecture-subbox:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  background: rgba(15, 23, 42, 0.6) !important;  /* ajusta si usas otro color base */
+  border-color: rgba(34, 197, 94, 0.2) !important;
+  cursor: default !important;
+}
+
+/* Separación vertical entre capas de l'arquitectura */
+.architecture-card {
+  margin-bottom: 1.75rem;   /* prueba 1.5–2rem según lo veas */
+}
+
+/* Context: targetes a pantalla completa en mòbil */
+@media (max-width: 768px) {
+  .context-grid {
+    display: grid;              /* per si abans era flex */
+    grid-template-columns: 1fr; /* una sola columna */
+    gap: 24px;                  /* separació entre targetes, ajusta si vols */
+  }
+
+  .context-card {
+    min-height: 100vh;          /* ocupa tota l'alçada de la pantalla */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;  /* o center si vols centrar el contingut */
+  }
+}
+/* Espaciado general entre cualquier caja (capa o subcasilla) */
+.architecture-card,
+.architecture-subbox {
+  margin-bottom: 0.6rem;   /* pequeño hueco interno entre casillas de la misma capa */
+}
+
+/* Separación grande entre grupos de capa */
+.architecture-card--layer {
+  margin-top: 2.4rem;      /* separación antes de empezar una nueva capa */
+}
+
+/* La primera capa NO debe tener margen arriba extra */
+.architecture-card--layer:first-of-type {
+  margin-top: 0;
+}
+
+/* Layout context en mòbil */
+@media (max-width: 768px) {
+  .context-grid {
+    display: grid;
+    grid-template-columns: 1fr;   /* una sola columna */
+    gap: 24px;                    /* separació entre targetes */
+  }
+
+  .context-card {
+    width: 100%;
+    min-height: auto;             /* res de pantalla completa */
+  }
+}
+
+/* Compactar las tarjetas de las capas (1, 2 y 3) */
+.architecture-card--layer {
+  /* antes seguro tienes algo tipo 2–2.4rem */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Reducir espacio entre título y texto dentro de la capa */
+.architecture-card--layer .architecture-card-title {
+  margin-bottom: 0.25rem;
+}
+
+/* Evitar margen extra arriba del primer párrafo */
+.architecture-card--layer .architecture-card-text p:first-child {
+  margin-top: 0;
+}
+
+/* Y que no dejen un hueco enorme debajo */
+.architecture-card--layer .architecture-card-text p:last-child {
+  margin-bottom: 0.25rem;
+}
+
+/* Grid del equipo en escritorio (por si no lo tenías) */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+/* En mòbil: 2 targetes per fila */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columnes */
+    gap: 20px;                                        /* una mica menys d'espai */
+  }
+
+  .team-card {
+    padding: 12px 8px;
+  }
+
+  .team-photo-frame {
+    margin-bottom: 8px;
+  }
+
+  .team-name {
+    font-size: 0.95rem;
+  }
+
+  .team-role {
+    font-size: 0.8rem;
+  }
+}
+
+.section-inner {
+    max-width: 1900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+@media (min-width: 1600px) {
+  .section-inner {
+    max-width: 75%; /* ocupa menos ancho visual */
+  }
+}
+
+/* Ajustos per a tablet (iPad, etc.) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .nav {
+    padding: 12px 20px;          /* menys aire vertical */
+  }
+
+  .nav-left {
+    flex-shrink: 1;
+  }
+
+  .nav-logo-image {
+    max-height: 34px;            /* abans devien ser ~48px o més */
+    width: auto;
+  }
+
+  .nav-menu-toggle {
+    transform: translateX(0);    /* per si algun padding el desplaça */
   }
 }
 
